@@ -378,7 +378,7 @@ namespace SKYNET
                 modCommon.Show("Specify the adapter that you want to save in profile");
                 return;
             }
-            var settings = CreateOne();
+            var settings = modCommon.CreateOne(TB_IP.Text, TB_Mask.Text, TB_Gateway.Text, TB_DNS_1.Text, TB_DNS_2.Text, TB_IP_Secondary.Text, TB_Mask_Secondary.Text);
             if (settings != null)
             {
                 if (isProfile)
@@ -391,32 +391,6 @@ namespace SKYNET
                 }
             }
             CH_Profiles.Items.Add(CH_Profiles.Text);
-        }
-
-        private NetworkSettings CreateOne()
-        {
-            if (!IPAddress.TryParse(TB_IP.Text, out _))
-            {
-                MessageBox.Show("Invalid IP Address, please ... correct it." + Environment.NewLine + TB_IP.Text);
-                return null;
-            }
-            if (!IPAddress.TryParse(TB_Mask.Text, out _))
-            {
-                MessageBox.Show("The specified Subnet Mask is invalid, please ... correct it. " + Environment.NewLine + TB_Mask.Text);
-                return null;
-            }
-            var settings = new NetworkSettings()
-            {
-                IP = TB_IP.Text,
-                Mask = TB_Mask.Text,
-                Gateway = TB_Gateway.Text,
-                DNS_1 = TB_DNS_1.Text,
-                DNS_2 = TB_DNS_2.Text,
-                IP_Secondary = TB_IP_Secondary.Text,
-                Mask_Secondary = TB_Mask_Secondary.Text
-            };
-
-            return settings;
         }
 
         private void BT_RemoveProfile_Click(object sender, EventArgs e)

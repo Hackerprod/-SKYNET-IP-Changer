@@ -3,6 +3,7 @@ using System.Net;
 using System.Net.NetworkInformation;
 using System.Net.Sockets;
 using System.Windows.Forms;
+using SKYNET.Models;
 
 namespace SKYNET
 {
@@ -56,6 +57,32 @@ namespace SKYNET
             }
 
             return false;
+        }
+
+        public static NetworkSettings CreateOne(string IP, string Mask, string Gateway, string DNS_1, string DNS_2, string IP_Secondary, string Mask_Secondary)
+        {
+            if (!IPAddress.TryParse(IP, out _))
+            {
+                MessageBox.Show("Invalid IP Address, please ... correct it." + Environment.NewLine + IP);
+                return null;
+            }
+            if (!IPAddress.TryParse(Mask, out _))
+            {
+                MessageBox.Show("The specified Subnet Mask is invalid, please ... correct it. " + Environment.NewLine + Mask);
+                return null;
+            }
+            var settings = new NetworkSettings()
+            {
+                IP = IP,
+                Mask = Mask,
+                Gateway = Gateway,
+                DNS_1 = DNS_1,
+                DNS_2 = DNS_2,
+                IP_Secondary = IP_Secondary,
+                Mask_Secondary = Mask_Secondary
+            };
+
+            return settings;
         }
 
     }
