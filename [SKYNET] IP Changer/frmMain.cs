@@ -436,5 +436,20 @@ namespace SKYNET
                 CH_Profiles.Items.Remove(CH_Profiles.Text);
             }
         }
+
+        private void Mask_Click(object sender, MouseEventArgs e)
+        {
+            if (string.IsNullOrEmpty(TB_Mask.Text) && !string.IsNullOrEmpty(TB_IP.Text))
+            {
+                TB_Mask.Text = "255.255.255.0";
+            }
+        }
+        private void Mask_Secondary_Click(object sender, MouseEventArgs e)
+        {
+            if (string.IsNullOrEmpty(TB_Mask_Secondary.Text) && !string.IsNullOrEmpty(TB_IP_Secondary.Text))
+            {
+                TB_Mask_Secondary.Text = "255.255.255.0";
+            }
+        }
     }
 }

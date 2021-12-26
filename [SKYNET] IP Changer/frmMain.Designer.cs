@@ -1,4 +1,7 @@
-﻿namespace SKYNET
+﻿using System;
+using System.Windows.Forms;
+
+namespace SKYNET
 {
     partial class frmMain
     {
@@ -223,6 +226,7 @@
             this.TB_Mask.Name = "TB_Mask";
             this.TB_Mask.Size = new System.Drawing.Size(113, 16);
             this.TB_Mask.TabIndex = 6;
+            this.TB_Mask.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Mask_Click);
             this.TB_Mask.TextChanged += new System.EventHandler(this.IP_TextChanged);
             // 
             // txtGatewayColor
@@ -474,6 +478,7 @@
             this.TB_Mask_Secondary.Name = "TB_Mask_Secondary";
             this.TB_Mask_Secondary.Size = new System.Drawing.Size(113, 16);
             this.TB_Mask_Secondary.TabIndex = 6;
+            this.TB_Mask_Secondary.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Mask_Secondary_Click);
             this.TB_Mask_Secondary.TextChanged += new System.EventHandler(this.IP_TextChanged);
             // 
             // panel15
