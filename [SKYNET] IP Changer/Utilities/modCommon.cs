@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Diagnostics;
+using System.IO;
 using System.Net;
 using System.Net.NetworkInformation;
 using System.Net.Sockets;
@@ -9,6 +11,17 @@ namespace SKYNET
 {
     public class modCommon
     {
+        public static string GetPath()
+        {
+            Process currentProcess;
+            try
+            {
+                currentProcess = Process.GetCurrentProcess();
+                return new FileInfo(currentProcess.MainModule.FileName).Directory?.FullName;
+            }
+            finally { currentProcess = null; }
+        }
+
         public static string GetIP()
         {
             string Ip = "";

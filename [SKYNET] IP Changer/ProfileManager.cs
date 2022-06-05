@@ -12,18 +12,20 @@ namespace SKYNET
     public class ProfileManager
     {
         public List<Profile> Profiles { get; set; }
+        private string filePath;
 
         public ProfileManager()
         {
             Profiles = new List<Profile>();
+            filePath = Path.Combine(modCommon.GetPath(), "Profiles.json");
         }
         public void Load()
         {
-            if (File.Exists("Profiles.json"))
+            if (File.Exists(filePath))
             {
                 try
                 {
-                    string JSON = File.ReadAllText("Profiles.json");
+                    string JSON = File.ReadAllText(filePath);
                     Profiles = new JavaScriptSerializer().Deserialize<List<Profile>>(JSON);
                 }
                 catch (Exception)
@@ -41,9 +43,9 @@ namespace SKYNET
             string JSON = new JavaScriptSerializer().Serialize(Profiles);
             try
             {
-                File.WriteAllText("Profiles.json", JSON);
+                File.WriteAllText(filePath, JSON);
             }
-            catch (Exception ex)
+            catch 
             {
             }
         }
