@@ -14,11 +14,6 @@ namespace SKYNET.Utils
 {
     public class NetworkConfigurator
     {
-        /// <param name="ipAddress">The IP Address</param>
-        /// <param name="subnetMask">The Submask IP Address</param>
-        /// <param name="gateway">The gateway.</param>
-        static string[] IPs = new string[2];
-
         public static void SetIP(string AdapterName, string ipAddress, string subnetMask)
         {
             using (var networkConfigMng = new ManagementClass("Win32_NetworkAdapterConfiguration"))
@@ -106,9 +101,9 @@ namespace SKYNET.Utils
                     }
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
+                
             }
         }
 

@@ -36,7 +36,6 @@ namespace SKYNET
             }
 
             LoadProfile();
-
         }
         private bool isProfile
         {
@@ -67,7 +66,7 @@ namespace SKYNET
             }
             catch (Exception)
             {
-                LoadIps(Settings.Profile.Adapter);
+                
             }
 
         }
@@ -211,11 +210,6 @@ namespace SKYNET
             }
         }
 
-        private void frmMain_Load(object sender, EventArgs e)
-        {
-            LoadIps(Settings.Profile.Adapter);
-        }
-
         private void LoadIps(string adapter)
         {
             LB_Current_IP.Text = "0.0.0.0";
@@ -253,6 +247,7 @@ namespace SKYNET
                     }
                 }
             }
+            //else { modCommon.Show("null"); }
 
             if (SubMasks != null)
             {
