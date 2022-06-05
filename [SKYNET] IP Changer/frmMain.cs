@@ -383,9 +383,9 @@ namespace SKYNET
                 else
                 {
                     ProfileManager.Add(CH_Adapters.Text, CH_Profiles.Text, settings);
+                    CH_Profiles.Items.Add(CH_Profiles.Text);
                 }
             }
-            CH_Profiles.Items.Add(CH_Profiles.Text);
         }
 
         private void BT_RemoveProfile_Click(object sender, EventArgs e)
